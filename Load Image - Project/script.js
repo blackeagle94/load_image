@@ -53,7 +53,17 @@ createImage('./images/img-1.jpg')
   return waitFor(2)
 })
 .then(() => {
-  
+  let btn = document.querySelector('#btn');
+  let body = document.getElementsByTagName('BODY')[0];
+  body.addEventListener('keypress', function(e) {
+      if (e.code === 'Space') {
+        location.reload()
+      }
+  })
+  btn.style.display = 'block'
+  btn.addEventListener('click', function() {
+    location.reload()
+  })
 })
 .catch(error => {
   console.log(error)
